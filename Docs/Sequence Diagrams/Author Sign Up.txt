@@ -1,0 +1,38 @@
+title Author Sign Up
+
+actor Author
+
+
+
+
+participant Sign-up prompt
+participant Account Manager
+database Database
+
+Author->Sign-up prompt:1. Input credentials
+
+activate Sign-up prompt
+
+Sign-up prompt->Account Manager: 2.Send the credentials
+deactivate Sign-up prompt
+
+activate Account Manager
+ 
+
+
+Account Manager->Account Manager:3. Check credentials
+
+deactivate Account Manager
+
+
+activate Account Manager
+
+Account Manager->Database:4. Save credentials
+
+deactivate Account Manager
+
+
+destroyafter Sign-up prompt
+
+
+Database-->Author: 4. Author added account added

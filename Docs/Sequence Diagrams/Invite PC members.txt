@@ -1,0 +1,68 @@
+title Invite PC members diagram
+
+actor Chair
+
+participant Email System
+
+actor PC member
+
+participant Account manager
+
+database Database
+
+Chair->Email System:1. Invite PC member
+
+activate Email System
+
+Email System->PC member:2. Invitation email sent
+
+deactivate Email System
+
+
+
+activate PC member
+
+PC member ->Account manager: 3. Invitation accepted
+
+deactivate PC member
+
+
+
+activate Account manager
+
+Account manager->Account manager:4. Check account credentials
+
+destroyafter Email System
+
+
+
+
+
+
+Account manager ->Database: 5. PC Member added to database
+deactivate Account manager
+
+activate Database
+destroyafter PC member
+Database --> Chair: 6. Chair is done inviting people
+
+deactivate Database
+
+Chair ->Account manager: 7. Upgrade PC Member's status
+
+activate Account manager
+
+note over Chair,Account manager: upgrading PC Members's status to Chair/Co-Chair is optional
+
+
+Account manager->Database:8. Credentials changed
+
+deactivate Account manager
+
+
+activate Database
+
+
+Account manager-->Chair:9. PC Member status changed
+
+deactivate Database
