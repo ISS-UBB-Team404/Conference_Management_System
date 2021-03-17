@@ -12,10 +12,7 @@ activate Review Manager
 
 Review Manager->Scheduler:2:Send request further
 deactivate Review Manager
-activate Scheduler
 
-Scheduler->Scheduler:3:Check Timeline
-deactivate Scheduler
 activate Scheduler
 Scheduler->Database:4:Database query
 deactivate Scheduler
@@ -39,10 +36,7 @@ activate Review Manager
 Review Manager->Scheduler:8:Send updates
 deactivate Review Manager
 
-activate Scheduler
 
-Scheduler->Scheduler:9:Check Timeline
-deactivate Scheduler
 activate Scheduler
 Scheduler->Database:10:Update Database\n
 deactivate Scheduler
