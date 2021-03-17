@@ -1,38 +1,55 @@
 title Chair Review Process
 
 actor Chair
-
+actor PC member
 participant Review Manager
 participant Scheduler
 database Database
 
 
-Chair->Review Manager:1: Request Papers with uncertain acceptance
+Chair->Review Manager:1: Request Papers
 activate Review Manager
 
 Review Manager->Scheduler:2:Send request further
 deactivate Review Manager
 activate Scheduler
 
-
+Scheduler->Scheduler:3:Check Timeline
 deactivate Scheduler
 activate Scheduler
-Scheduler->Database:3:Database query
+Scheduler->Database:4:Database query
 deactivate Scheduler
 activate Database
-Review Manager<--Database:4:Database reply
+Review Manager<--Database:5:Database reply
 deactivate Database
-Chair<--Review Manager:5:Chair is provided with requested papers
-Chair->Review Manager:6:Accect,reject or send paper for reevaluation
+Chair<--Review Manager:6:Chair is provided with requested papers
+Chair->Review Manager:7:Resolve contradictory reviews
+
+
+
+
+alt assign 3 PC members for review
+
+Review Manager->PC member: 8. Assign paper
+
+
+else accept/reject paper
+
 activate Review Manager
-Review Manager->Scheduler:7:Send updates
+Review Manager->Scheduler:8:Send updates
 deactivate Review Manager
+
 activate Scheduler
 
+Scheduler->Scheduler:9:Check Timeline
 deactivate Scheduler
 activate Scheduler
-Scheduler->Database:8:Update Database\n
+Scheduler->Database:10:Update Database\n
 deactivate Scheduler
 activate Database
-Chair<--Review Manager:9:Notify chair of changes
+Chair<--Database:11:Notify chair of changes
 deactivate Database
+
+end
+
+
