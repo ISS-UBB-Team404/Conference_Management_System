@@ -14,26 +14,25 @@ Review Manager->Scheduler:2:Send request further
 deactivate Review Manager
 activate Scheduler
 
-Scheduler->Scheduler:3:Check Timeline
+
 deactivate Scheduler
 activate Scheduler
-Scheduler->Database:4:Database query
+Scheduler->Database:3:Database query
 deactivate Scheduler
 activate Database
-Review Manager<--Database:5:Database reply
+Review Manager<--Database:4:Database reply
 deactivate Database
-Chair<--Review Manager:6:Chair is provided with requested papers
-Chair->Review Manager:7:Accect,reject or send paper for reevaluation
+Chair<--Review Manager:5:Chair is provided with requested papers
+Chair->Review Manager:6:Accect,reject or send paper for reevaluation
 activate Review Manager
-Review Manager->Scheduler:8:Send updates
+Review Manager->Scheduler:7:Send updates
 deactivate Review Manager
 activate Scheduler
 
-Scheduler->Scheduler:9:Check Timeline
 deactivate Scheduler
 activate Scheduler
-Scheduler->Database:10:Update Database\n
+Scheduler->Database:8:Update Database\n
 deactivate Scheduler
 activate Database
-Chair<--Database:11:Notify chair of changes
+Chair<--Review Manager:9:Notify chair of changes
 deactivate Database
