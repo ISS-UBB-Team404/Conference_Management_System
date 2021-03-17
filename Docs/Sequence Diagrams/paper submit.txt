@@ -7,15 +7,15 @@ participant Scheduler
 database Database
 
 
-Author->Paper Manager:1:Submit abstract
+Author->Paper Manager:1:Submit paper
 activate Paper Manager
-Paper Manager->Scheduler:2:Send abstract further
+Paper Manager->Scheduler:2:Send paper further
 deactivate Paper Manager
 activate Scheduler
 
 deactivate Scheduler
 activate Scheduler
-Scheduler->Database:4:Save abstract
+Scheduler->Database:4:Save paper
 deactivate Scheduler
 activate Database
 deactivateafter Database
