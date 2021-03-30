@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
-@Entity(name = "Student")
+/*@Entity(name = "Student")
 @Table(
         name = "student",
         uniqueConstraints = {
@@ -118,5 +118,5 @@ public class Student {
                 ", age=" + age +
                 '}';
     }
-}
+}*/
 

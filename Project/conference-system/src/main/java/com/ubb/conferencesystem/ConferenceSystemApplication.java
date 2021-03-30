@@ -12,11 +12,11 @@ public class ConferenceSystemApplication {
 		SpringApplication.run(ConferenceSystemApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
             Student andrei = new Student("Andrei", "Gabor", "abc@gmail.com", 20);
             studentRepository.save(andrei);
         };
-    }
+    }*/
 }
