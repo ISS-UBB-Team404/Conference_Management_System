@@ -10,12 +10,9 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 @Entity
-public class Chair extends User{
+public class Author extends User{
 
-    private Integer conferenceId;
-
-    public Chair(String username, String password, String email, Integer conferenceId) {
+    public Author(String username, String password, String email) {
         super(username, password, email);
-        this.conferenceId = conferenceId;
     }
 }
