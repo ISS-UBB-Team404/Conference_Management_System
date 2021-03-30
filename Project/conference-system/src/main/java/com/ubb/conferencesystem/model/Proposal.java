@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("proposal")
 public class Proposal extends Paper{
 
     @OneToOne

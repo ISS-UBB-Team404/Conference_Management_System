@@ -1,7 +1,6 @@
 package com.ubb.conferencesystem.model;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -16,12 +15,25 @@ public class Conference {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String name;
     private LocalDate startTime;
     private LocalDate endTime;
 
     @OneToMany
     private List<Section> sections = new ArrayList<>();
+
+    public Conference(String name, LocalDate startTime, LocalDate endTime) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public Conference(String name, LocalDate startTime, LocalDate endTime, List<Section> sections) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.sections = sections;
+    }
 }
 
