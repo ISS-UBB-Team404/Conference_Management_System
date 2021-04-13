@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {RegistrationService} from '../registration.service';
+import {User} from '../user';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+
+  constructor(private registrationService: RegistrationService,
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: [''],
+      password: [''],
+    });
   }
 
+  onSubmit(): void {
+    this.registrationService.loginUser(this.loginForm.value)
+      .subscribe(data => {
+        console.log('response received');
+        this.router.navigate(['/enter']);
+        },
+        error => console.log('exception'));
+  }
 }

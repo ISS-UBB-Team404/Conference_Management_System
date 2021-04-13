@@ -5,10 +5,7 @@ import com.ubb.conferencesystem.model.Listener;
 import com.ubb.conferencesystem.model.Paper;
 import com.ubb.conferencesystem.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PaperController {
@@ -17,6 +14,7 @@ public class PaperController {
     private PaperService service;
 
     @RequestMapping(path = "/submit-paper")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Paper submitPaper(@RequestBody Paper paper) throws Exception {
         String title = paper.getTitle();
         Paper paperFetched = null;

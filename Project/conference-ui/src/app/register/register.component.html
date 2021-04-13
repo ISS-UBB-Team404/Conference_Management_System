@@ -13,16 +13,19 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="user" id="login" class="fadeIn second" name="login" placeholder="username">
-      <input type="email" id="email" class="fadeIn second" name="login" placeholder="email">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
-      <select class="fadeIn third">
-        <option style="display:flex; align-items: center;" value="0">Author</option>
-        <option style="display:flex; justify-content: center" value="1">Listener</option>
+    <form  [formGroup]="registerForm">
+      <input formControlName="username" type="user" id="login" class="fadeIn second"
+             name="login" placeholder="username">
+      <input formControlName="email"  type="email" id="email" class="fadeIn second"
+             name="login" placeholder="email">
+      <input formControlName="password"  type="password" id="password" class="fadeIn third"
+             name="login" placeholder="password">
+      <select formControlName="type"  class="fadeIn third">
+        <option style="display:flex; align-items: center;" value="author">Author</option>
+        <option style="display:flex; justify-content: center" value="listener">Listener</option>
       </select>
       <a routerLink = "/login">
-        <input type="submit" class="fadeIn fourth" value="Register" >
+        <input (click)="onSubmit()" type="submit" class="fadeIn fourth" value="Register" >
       </a>
     </form>
 

@@ -14,6 +14,7 @@ public class RegistrationController {
     private RegistrationService service;
 
     @RequestMapping(path = "/register/{type}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public User registerUser(@PathVariable String type,
                              @RequestBody User user) throws Exception {
         String email = user.getEmail();
