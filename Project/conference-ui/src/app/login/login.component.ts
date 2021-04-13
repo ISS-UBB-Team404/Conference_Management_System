@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  message = '';
 
   constructor(private registrationService: RegistrationService,
               private formBuilder: FormBuilder,
@@ -30,6 +31,9 @@ export class LoginComponent implements OnInit {
         console.log('response received');
         this.router.navigate(['/submit']);
         },
-        error => console.log('exception'));
+        error => {
+          console.log('exception');
+          this.message = 'Invalid credentials';
+      });
   }
 }
