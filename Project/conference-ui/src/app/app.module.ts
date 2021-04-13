@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,17 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path:'register',
+        component:RegisterComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
