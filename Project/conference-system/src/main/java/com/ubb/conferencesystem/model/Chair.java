@@ -16,12 +16,12 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("chair")
 public class Chair extends User{
 
-    @OneToOne
-    @JoinColumn(name = "conference_id", referencedColumnName = "id")
-    private Conference conference;
+//    @OneToOne
+//    @JoinColumn(name = "conference_id", referencedColumnName = "id")
+//    private Conference conference;
 
     public Chair(String username, String password, String email, Conference conference) {
         super(username, password, email);
-        this.conference = conference;
+//        this.conference = conference;
     }
 }

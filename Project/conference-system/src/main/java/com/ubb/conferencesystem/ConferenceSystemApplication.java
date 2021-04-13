@@ -16,7 +16,7 @@ public class ConferenceSystemApplication {
 		SpringApplication.run(ConferenceSystemApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
     CommandLineRunner commandLineRunner(PaperRepository paperRepository,
                                         AuthorRepository authorRepository,
                                         ConferenceRepository conferenceRepository,
@@ -40,5 +40,5 @@ public class ConferenceSystemApplication {
             Listener listener = new Listener("user", "password", "email@email.com", conference);
             listenerRepo.save(listener);
         };
-    }
+    }*/
 }

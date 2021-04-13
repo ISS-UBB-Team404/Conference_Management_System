@@ -1,5 +1,6 @@
 package com.ubb.conferencesystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,11 +8,12 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
+@Entity(name="users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type",
         discriminatorType = DiscriminatorType.STRING)
-public abstract class User {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

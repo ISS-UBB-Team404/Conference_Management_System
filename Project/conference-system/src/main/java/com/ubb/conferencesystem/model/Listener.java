@@ -1,5 +1,6 @@
 package com.ubb.conferencesystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,15 +14,15 @@ import javax.persistence.OneToOne;
 @Data
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("author")
+@DiscriminatorValue("listener")
 public class Listener extends User{
 
-    @OneToOne
-    @JoinColumn(name = "conference_id", referencedColumnName = "id")
-    private Conference conference;
+//    @OneToOne
+//    @JoinColumn(name = "conference_id", referencedColumnName = "id")
+//    private Conference conference;
 
     public Listener(String username, String password, String email, Conference conference) {
         super(username, password, email);
-        this.conference = conference;
+//        this.conference = conference;
     }
 }

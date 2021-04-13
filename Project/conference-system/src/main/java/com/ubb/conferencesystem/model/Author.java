@@ -1,5 +1,6 @@
 package com.ubb.conferencesystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,6 @@ public class Author extends User{
     public Author(String username, String password, String email) {
         super(username, password, email);
     }
+
 
 }
