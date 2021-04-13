@@ -1,7 +1,9 @@
+
+
 .submit-form{ margin-top:15px;}
-.submit-form .textarea{ min-height:420px; resize:none;}
-.form-control{ box-shadow:none; border-width: 2px; border-color:#39ace7; height:49px;}
-.form-control:focus{ box-shadow:none; border-color:#39ace7;}
+.submit-form .textarea{ min-height:420px; resize:none; border-radius: 20px; font-size: 22px; background-color: #F5F5F5}
+.form-control{ box-shadow:none; border-width: 2px; border-color:#F5F5F5; height:49px; border-radius: 20px; font-size: 22px;background-color: #F5F5F5}
+.form-control:focus{ box-shadow:none; border-color:#F5F5F5;}
 .form-control-feedback{ line-height:50px;}
 .main-btn{
   background:#39ace7;
@@ -15,13 +17,15 @@
   top: 0px;
 }
 .title{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 35px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 34px;
   text-align: center;
-  color:#39ace7;
+  color:#ffffff;
   position: relative;
+  font-weight: bold;
   top:20px;
   padding-bottom: 50px;
+  padding-top: 15px;
 }
 
 .submitButton{
@@ -35,4 +39,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
 }
