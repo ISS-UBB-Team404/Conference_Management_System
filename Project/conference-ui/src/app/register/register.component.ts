@@ -26,11 +26,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.registrationService.registerUser(this.registerForm.value)
       .subscribe(data => {
           console.log('response received');
-          //this.router.navigate(['/enter']);
         },
         error => console.log('exception'));
   }

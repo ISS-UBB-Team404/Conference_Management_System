@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.registrationService.loginUser(this.loginForm.value)
       .subscribe(data => {
         console.log('response received');
-        this.router.navigate(['/enter']);
+        this.router.navigate(['/submit']);
         },
         error => console.log('exception'));
   }
