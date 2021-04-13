@@ -8,13 +8,15 @@ import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EnterComponent } from './enter/enter.component';
+import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    EnterComponent
+    EnterComponent,
+    PaperSubmitComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,10 @@ import { EnterComponent } from './enter/enter.component';
       {
         path: 'enter',
         component: EnterComponent
+      },
+      {
+        path: 'submit',
+        component: PaperSubmitComponent
       }
     ]),
     FormsModule,

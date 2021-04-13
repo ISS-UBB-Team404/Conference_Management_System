@@ -15,8 +15,8 @@
     <!-- Login Form -->
     <form [formGroup]="loginForm">
       <input formControlName="username"  type="text" id="login" class="fadeIn second"
-             name="login" placeholder="login">
-      <input formControlName="password" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+             name="login" placeholder="username">
+      <input formControlName="password" type="password" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In" (click)="onSubmit()">
     </form>
 
