@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,12 @@ import {RouterModule} from "@angular/router";
         component: LoginComponent
       },
       {
-        path:'register',
-        component:RegisterComponent
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
       }
     ])
   ],

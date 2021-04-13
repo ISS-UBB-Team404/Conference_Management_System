@@ -8,6 +8,10 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -28,7 +32,6 @@ h2 {
 }
 
 
-
 /* STRUCTURE */
 
 .wrapper {
@@ -39,6 +42,8 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
+
+  padding-top: 70px;
 }
 
 #formContent {
