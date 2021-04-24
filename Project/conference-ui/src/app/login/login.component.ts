@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         console.log('Login get Data: ', data);
         this.cookieService.setCookie('username', this.loginForm.value.username);
         this.cookieService.setCookie('userId', data.id);
+        this.cookieService.setCookie('userType', data.type);
         console.log('response received');
         console.log('connected user: ' + this.cookieService.getCookie('username') +
                     ' with id: ' + this.cookieService.getCookie('userId'));
