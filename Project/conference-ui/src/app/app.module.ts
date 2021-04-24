@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EnterComponent } from './enter/enter.component';
 import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
 import {HttpClientModule} from '@angular/common/http';
-import {CookieService} from 'ngx-cookie-service';
+import {CookieService, CookieModule} from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import {CookieService} from 'ngx-cookie-service';
     LoginComponent,
     RegisterComponent,
     EnterComponent,
-    PaperSubmitComponent
+    PaperSubmitComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,8 @@ import {CookieService} from 'ngx-cookie-service';
       }
     ]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CookieModule.forRoot()
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

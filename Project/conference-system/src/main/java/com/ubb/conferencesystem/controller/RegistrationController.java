@@ -45,6 +45,7 @@ public class RegistrationController {
         return null;
     }
 
+    
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:4200")
     public User loginUser(@RequestBody User user) throws Exception {

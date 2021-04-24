@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {} from '../app.module';
-import {CookieService} from 'ngx-cookie-service';
+import {CookieController} from '../CookieController';
 
 @Component({
   selector: 'app-login',
@@ -18,15 +18,14 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   message = '';
   private cookieValue: string;
+  private currentUser: User;
 
   constructor(private registrationService: RegistrationService,
               private formBuilder: FormBuilder,
               private router: Router,
-              private cookieService: CookieService
+              private cookieService: CookieController
               )
-        { // this.cookieService.set('Test', 'testValue');
-          // this.cookieValue = this.cookieService.get('Test');
-        }
+        {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -36,11 +35,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.registrationService.loginUser(this.loginForm.value)
+    this.currentUser = this.registrationService.loginUser(this.loginForm.value)
       .subscribe(data => {
-        this.cookieService.set('username', this.loginForm.value.username);
+        console.log('Login get Data: ', data);
+        this.cookieService.setCookie('username', this.loginForm.value.username);
+        this.cookieService.setCookie('userId', data.id);
         console.log('response received');
-        console.log('connected user: ' + this.cookieService.get('username'));
+        console.log('connected user: ' + this.cookieService.getCookie('username') +
+                    ' with id: ' + this.cookieService.getCookie('userId'));
         this.router.navigate(['/submit']);
         },
         error => {
