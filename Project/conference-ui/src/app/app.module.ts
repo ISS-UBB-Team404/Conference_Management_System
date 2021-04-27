@@ -11,6 +11,7 @@ import { EnterComponent } from './enter/enter.component';
 import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChairComponent } from './chair/chair.component';
+import { ListenerComponent } from './listener/listener.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChairComponent } from './chair/chair.component';
     EnterComponent,
     PaperSubmitComponent,
     AdminComponent,
-    ChairComponent
+    ChairComponent,
+    ListenerComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,10 @@ import { ChairComponent } from './chair/chair.component';
       {
         path: 'chair',
         component: ChairComponent
+      },
+      {
+        path: 'listener',
+        component: ListenerComponent
       }
     ]),
     FormsModule,
