@@ -11,8 +11,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity(name="users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type",
-        discriminatorType = DiscriminatorType.STRING)
+//@DiscriminatorColumn(name="type",
+//        discriminatorType = DiscriminatorType.STRING)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +20,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    protected String type;
 
     public User(String username, String password, String email) {
         this.username = username;

@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EnterComponent } from './enter/enter.component';
 import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
+import { AdminComponent } from './admin/admin.component';
+import { ChairComponent } from './chair/chair.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
     LoginComponent,
     RegisterComponent,
     EnterComponent,
-    PaperSubmitComponent
+    PaperSubmitComponent,
+    AdminComponent,
+    ChairComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,14 @@ import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
       {
         path: 'submit',
         component: PaperSubmitComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
+      },
+      {
+        path: 'chair',
+        component: ChairComponent
       }
     ]),
     FormsModule,

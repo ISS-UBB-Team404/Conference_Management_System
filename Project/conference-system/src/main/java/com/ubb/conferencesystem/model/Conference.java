@@ -1,5 +1,9 @@
 package com.ubb.conferencesystem.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,22 +21,29 @@ public class Conference {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private LocalDate startTime;
-    private LocalDate endTime;
+
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "d/M/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate startDate;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate endDate;
 
     @OneToMany
     private List<Section> sections = new ArrayList<>();
 
     public Conference(String name, LocalDate startTime, LocalDate endTime) {
         this.name = name;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.startDate = startTime;
+        this.endDate = endTime;
     }
 
     public Conference(String name, LocalDate startTime, LocalDate endTime, List<Section> sections) {
         this.name = name;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.startDate = startTime;
+        this.endDate = endTime;
         this.sections = sections;
     }
 }

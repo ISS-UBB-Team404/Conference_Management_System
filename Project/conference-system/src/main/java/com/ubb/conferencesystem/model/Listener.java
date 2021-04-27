@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 @Data
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("listener")
+//@DiscriminatorValue("listener")
 public class Listener extends User{
 
 //    @OneToOne
@@ -24,5 +24,6 @@ public class Listener extends User{
     public Listener(String username, String password, String email, Conference conference) {
         super(username, password, email);
 //        this.conference = conference;
+//        this.setType("listener");
     }
 }

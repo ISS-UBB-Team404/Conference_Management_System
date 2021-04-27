@@ -32,6 +32,7 @@ public class RegistrationController {
             author.setEmail(user.getEmail());
             author.setPassword(user.getPassword());
             author.setUsername(user.getUsername());
+            author.setType("author");
             return service.saveUser(author);
         }
         else if (type.equals("listener")) {
@@ -40,6 +41,7 @@ public class RegistrationController {
             listener.setEmail(user.getEmail());
             listener.setPassword(user.getPassword());
             listener.setUsername(user.getUsername());
+            listener.setType("listener");
             return service.saveUser(listener);
         }
         return null;

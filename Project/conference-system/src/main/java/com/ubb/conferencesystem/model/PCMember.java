@@ -11,10 +11,11 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("pcmember")
+//@DiscriminatorValue("pcmember")
 public class PCMember extends Author{
 
     public PCMember(String username, String password, String email) {
         super(username, password, email);
+//        this.setType("pcmember");
     }
 }

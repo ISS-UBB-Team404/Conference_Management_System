@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 @Data
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("chair")
+//@DiscriminatorValue("chair")
 public class Chair extends User{
 
 //    @OneToOne
@@ -23,5 +23,6 @@ public class Chair extends User{
     public Chair(String username, String password, String email, Conference conference) {
         super(username, password, email);
 //        this.conference = conference;
+//        this.setType("chair");
     }
 }

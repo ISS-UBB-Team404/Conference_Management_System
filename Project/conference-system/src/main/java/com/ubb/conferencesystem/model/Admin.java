@@ -1,6 +1,5 @@
 package com.ubb.conferencesystem.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -12,13 +11,11 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 @Entity
-//@DiscriminatorValue("author")
-public class Author extends User{
+//@DiscriminatorValue("admin")
+public class Admin extends User{
 
-    public Author(String username, String password, String email) {
+    public Admin(String username, String password, String email) {
         super(username, password, email);
-//        this.setType("author");
+//        this.setType("admin");
     }
-
-
 }

@@ -25,11 +25,34 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  navigateByType(type: string): void {
+    switch (type) {
+      case 'admin': {
+        this.router.navigate(['/admin']);
+        break;
+      }
+      case 'author': {
+        this.router.navigate(['/submit']);
+        break;
+      }
+      case 'chair': {
+        this.router.navigate(['/chair']);
+        break;
+      }
+      default: {
+        this.router.navigate(['']);
+        break;
+      }
+    }
+  }
+
   onSubmit(): void {
     this.registrationService.loginUser(this.loginForm.value)
       .subscribe(data => {
         console.log('response received');
-        this.router.navigate(['/submit']);
+        console.log(data);
+        this.navigateByType(data.type);
+        // this.router.navigate(['/submit']);
         },
         error => {
           console.log('exception');
