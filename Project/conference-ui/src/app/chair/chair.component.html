@@ -1,1 +1,8 @@
 <h1>Chair Page</h1>
+
+<h2>Available Conferences:</h2>
+<ol class="conferences">
+  <li *ngFor="let conference of conferences">
+    {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
+  </li>
+</ol>
