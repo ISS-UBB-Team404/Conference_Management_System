@@ -1,1 +1,9 @@
-<p>listener works!</p>
+<h1>Listener Page</h1>
+
+<h2>Available Conferences:</h2>
+<ol class="conferences">
+  <li *ngFor="let conference of conferences" [class.selected]="conference === selectedConference"
+  (click)="onSelect(conference)">
+    {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
+  </li>
+</ol>
