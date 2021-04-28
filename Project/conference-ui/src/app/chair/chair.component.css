@@ -1,0 +1,22 @@
+#conferences {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#conferences td, #conferences th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#conferences tr:nth-child(even){background-color: #f2f2f2;}*/
+
+/*#conferences tr:hover {background-color: #ddd;}*/
+
+#conferences th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00CFFF;
+  color: white;
+}
