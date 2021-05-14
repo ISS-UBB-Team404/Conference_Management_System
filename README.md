@@ -1,1 +1,1 @@
-# Conference_Management_System
+Conference Management System (Spring + Angular)
