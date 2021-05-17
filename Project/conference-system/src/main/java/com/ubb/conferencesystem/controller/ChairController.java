@@ -33,7 +33,7 @@ public class ChairController {
     @CrossOrigin(origins = "http://localhost:4200")
     public void createSection(@RequestBody Section section){
         Section newSection = new Section();
-        newSection.setId(section.getId());
+       // newSection.setId(section.getId());
         newSection.setName(section.getName());
         newSection.setNumberOfParticipants(section.getNumberOfParticipants());
         newSection.setStartTime(section.getStartTime());

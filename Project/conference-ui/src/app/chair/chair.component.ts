@@ -36,8 +36,8 @@ export class ChairComponent implements OnInit {
   }
 
   invite(): void {
-    value = 
-    console.log(this.inviteForm.value);
-    this.chairService.inviteChair()
+    // value =
+    // console.log(this.inviteForm.value);
+    // this.chairService.inviteChair()
   }
 }

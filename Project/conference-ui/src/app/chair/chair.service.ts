@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Conference} from '../conference';
+import {Section} from '../section';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,6 @@ export class ChairService {
   }
 
   public createSection(section: Section): any{
-
+    return this.http.post(this.chairUrl + '/sections', section);
   }
 }
