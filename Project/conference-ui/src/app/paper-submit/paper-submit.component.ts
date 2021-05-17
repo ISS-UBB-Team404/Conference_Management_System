@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {PaperSubmitService} from '../paper-submit.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Paper} from '../paper';
+import {Conference} from '../conference';
+import {ConferenceService} from '../conference.service';
 
 
 @Component({
@@ -11,23 +13,30 @@ import {Paper} from '../paper';
   styleUrls: ['./paper-submit.component.css']
 })
 export class PaperSubmitComponent implements OnInit {
+  conferences: Conference[];
+  selectedConference: Conference;
 
   submitForm: FormGroup;
   public authorId: string;
 
   constructor(private paperSubmitService: PaperSubmitService,
+              private conferenceService: ConferenceService,
               private formBuilder: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.authorId = this.route.snapshot.paramMap.get('id');
     this.submitForm = this.formBuilder.group({
       title: [''],
-      conference: [''],
       content: [''],
       authorId: this.authorId
     });
+
+    this.conferenceService.getAllConferences()
+      .subscribe(data => this.conferences = data);
+    console.log(this.conferences);
   }
 
   onSubmit(): void {
@@ -37,7 +46,7 @@ export class PaperSubmitComponent implements OnInit {
         this.submitForm.get('content').value,
         this.submitForm.get('authorId').value,
       ),
-      this.submitForm.get('conference').value
+      this.selectedConference.id
     )
       .subscribe(data => {
           console.log('response received');

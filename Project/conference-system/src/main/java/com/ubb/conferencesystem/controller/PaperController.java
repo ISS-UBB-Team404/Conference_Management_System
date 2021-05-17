@@ -7,6 +7,7 @@ import com.ubb.conferencesystem.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
 
@@ -28,9 +29,14 @@ public class PaperController {
     public Paper submitPaper(@PathVariable Long id ,
                              @RequestBody Map<String, Object> data) throws Exception {
 
-        Paper paper = (Paper)(data.get("paper"));
+        var paperData = (LinkedHashMap<String, String>)data.get("paper");
+        Paper paper = new Paper(
+                paperData.get("title"),
+                paperData.get("content"),
+                Boolean.TRUE
+        );
         String title = paper.getTitle();
-        Long conferenceId = Long.valueOf((Integer) data.get("conferenceId"));
+        Long conferenceId = Long.valueOf((Integer)data.get("conferenceId")) ;
 
         // get all papers by the conference having id=conferenceId
         List<Paper> allPapersByConference = conferenceService.findById(conferenceId).getPapers();

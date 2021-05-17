@@ -4,6 +4,7 @@ import com.ubb.conferencesystem.model.Conference;
 import com.ubb.conferencesystem.repository.ConferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class ConferenceService {
         return this.repository.getById(id);
     }
 
+    @Transactional
     public void updateConference(Conference conference){
         if(!repository.existsById(conference.getId())){
             throw new RuntimeException("Conference doesn't exist");

@@ -27,17 +27,6 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <input formControlName="conference" type="text" class="form-control" name="Conference"
-                   autocomplete="off" id="Conference" placeholder="ConferenceId">
-          </div>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-
-      <div class="row">
         <div class="col-md-12">
           <div class="form-group">
             <textarea formControlName="content" class="form-control textarea"
@@ -55,3 +44,9 @@
     </form>
   </div>
 </div>
+
+<select name="conference" id="conference" [(ngModel)]="selectedConference">
+    <option *ngFor="let conference of conferences" [ngValue]="conference">
+      {{conference.name}}
+    </option>
+</select>

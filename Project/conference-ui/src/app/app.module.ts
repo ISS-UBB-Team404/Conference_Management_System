@@ -73,7 +73,7 @@ import { SectionNewComponent } from './chair/section-new/section-new.component';
         component: ConferenceUpdateComponent
       },
       {
-        path: 'chair/sections',
+        path: 'chair-sections',
         component: SectionNewComponent
       }
     ]),

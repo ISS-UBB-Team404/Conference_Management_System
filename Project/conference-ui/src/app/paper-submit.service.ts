@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Paper} from './paper';
+import {ConferenceService} from './conference.service';
+import {Conference} from './conference';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaperSubmitService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private conferenceService: ConferenceService) {
   }
 
   public submitPaper(paper: Paper, conferenceId: number): any {
