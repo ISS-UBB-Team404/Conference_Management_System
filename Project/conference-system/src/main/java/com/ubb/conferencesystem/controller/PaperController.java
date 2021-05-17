@@ -2,14 +2,20 @@ package com.ubb.conferencesystem.controller;
 
 import com.ubb.conferencesystem.model.Paper;
 import com.ubb.conferencesystem.service.AuthorService;
+import com.ubb.conferencesystem.service.ConferenceService;
 import com.ubb.conferencesystem.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.List;
+
 
 @RestController
 public class PaperController {
+
+    @Autowired
+    private ConferenceService conferenceService;
 
     @Autowired
     private PaperService paperService;
@@ -19,14 +25,20 @@ public class PaperController {
 
     @RequestMapping(path = "/submit-paper/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-//<<<<<<< HEAD
-//    public Paper submitPaper(@RequestBody Map<String, Object> data) throws Exception{
-//        Paper paper = (Paper)(data.get("paper"));
-//=======
-    public Paper submitPaper(@PathVariable Long id , @RequestBody Paper paper) throws Exception {
-//>>>>>>> origin/feature-papers-author-id
+    public Paper submitPaper(@PathVariable Long id ,
+                             @RequestBody Map<String, Object> data) throws Exception {
+
+        Paper paper = (Paper)(data.get("paper"));
         String title = paper.getTitle();
-//        Long conferenceId = Long.valueOf((Integer) data.get("conferenceId"));
+        Long conferenceId = Long.valueOf((Integer) data.get("conferenceId"));
+
+        // get all papers by the conference having id=conferenceId
+        List<Paper> allPapersByConference = conferenceService.findById(conferenceId).getPapers();
+
+        // add the newly created paper to it's list of papers
+        allPapersByConference.add(
+                paper
+        );
 
         Paper paperFetched = null;
         if (title != null && !title.equals("")) {

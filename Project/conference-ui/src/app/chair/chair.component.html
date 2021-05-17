@@ -1,7 +1,25 @@
 <h1>Chair Page</h1>
 
 <h2>Available Conferences:</h2>
-<<<<<<< HEAD
+<ol class="conferences">
+  <li *ngFor="let conference of conferences">
+    {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
+    <button class="updateButton" [class.update] = "true" (click)="updateConference(conference);$event.stopPropagation()" >Update</button>
+  </li>
+</ol>
+
+<h2>Invite other Chairs or PC Members</h2>
+<form class="bottom-form" [formGroup]="inviteForm">
+  <input type="text" formControlName="email" placeholder="Email">
+  <select name="types" formControlName="member">
+    <option value="Chair">Chair</option>
+    <option value="PC Member">PC Member</option>
+  </select>
+  <input type="submit" class="button-style" value="Invite" (click)="invite()">
+</form>
+
+
+<!--<<<<<<< HEAD
 
 <table id="conferences">
   <tr>
@@ -14,10 +32,7 @@
     <td>{{conference.startDate}}</td>
     <td>{{conference.endDate}}</td>
   </tr>
-</table>
-
-
-
+</table>-->
 
 <!--<ol class="conferences">-->
 <!--  <li *ngFor="let conference of conferences">-->
@@ -30,11 +45,5 @@
 <!--    {{conference.name}} -&#45;&#45; {{conference.startDate}} -&#45;&#45; {{conference.endDate}}-->
 <!--  </li>-->
 <!--</ol>-->
-=======
-<ol class="conferences">
-  <li *ngFor="let conference of conferences">
-    {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
-    <button class="updateButton" [class.update] = "true" (click)="updateConference(conference);$event.stopPropagation()" >Update</button>
-  </li>
-</ol>
->>>>>>> origin/feature-papers-author-id
+
+

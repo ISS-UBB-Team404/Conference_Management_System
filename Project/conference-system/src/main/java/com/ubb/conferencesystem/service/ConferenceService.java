@@ -17,6 +17,10 @@ public class ConferenceService {
         return this.repository.findAll();
     }
 
+    public Conference findById(Long id){
+        return this.repository.getById(id);
+    }
+
     public void updateConference(Conference conference){
         if(!repository.existsById(conference.getId())){
             throw new RuntimeException("Conference doesn't exist");

@@ -23,6 +23,7 @@ export class PaperSubmitComponent implements OnInit {
     this.authorId = this.route.snapshot.paramMap.get('id');
     this.submitForm = this.formBuilder.group({
       title: [''],
+      conference: [''],
       content: [''],
       authorId: this.authorId
     });

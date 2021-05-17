@@ -14,6 +14,7 @@
   </div>
   <div class="row">
     <form [formGroup]="submitForm" role="form" id="submit-form" class="submit-form">
+
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -24,6 +25,18 @@
         </div>
         <div class="col-md-4"></div>
       </div>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input formControlName="conference" type="text" class="form-control" name="Conference"
+                   autocomplete="off" id="Conference" placeholder="ConferenceId">
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -32,6 +45,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="wrapper">
       <div class="row submitButton" >
         <button (click)="onSubmit()" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
