@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {PaperSubmitService} from '../paper-submit.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Paper} from '../paper';
 
 
 @Component({
@@ -30,7 +31,14 @@ export class PaperSubmitComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.paperSubmitService.submitPaper(this.submitForm.value)
+    this.paperSubmitService.submitPaper(
+      new Paper(
+        this.submitForm.get('title').value,
+        this.submitForm.get('content').value,
+        this.submitForm.get('authorId').value,
+      ),
+      this.submitForm.get('conference').value
+    )
       .subscribe(data => {
           console.log('response received');
         },
