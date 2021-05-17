@@ -4,5 +4,6 @@
 <ol class="conferences">
   <li *ngFor="let conference of conferences">
     {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
+    <button class="updateButton" [class.update] = "true" (click)="updateConference(conference);$event.stopPropagation()" >Update</button>
   </li>
 </ol>

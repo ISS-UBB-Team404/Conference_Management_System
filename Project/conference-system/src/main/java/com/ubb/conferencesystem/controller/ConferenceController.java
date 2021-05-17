@@ -2,10 +2,11 @@ package com.ubb.conferencesystem.controller;
 
 import com.ubb.conferencesystem.model.Conference;
 import com.ubb.conferencesystem.service.ConferenceService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +20,18 @@ public class ConferenceController {
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Conference> getAllConferences(){
         return conferenceService.findAll();
+    }
+
+    @RequestMapping(value = "/chair/updateConference/{id}", method = RequestMethod.PUT)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public ResponseEntity<?> updateConference(@PathVariable Long id ,@RequestBody Conference conference){
+        try{
+            conference.setId(id);
+            this.conferenceService.updateConference(conference);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

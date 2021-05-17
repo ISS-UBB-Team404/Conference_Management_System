@@ -16,4 +16,18 @@ public class ConferenceService {
     public List<Conference> findAll(){
         return this.repository.findAll();
     }
+
+    public void updateConference(Conference conference){
+        if(!repository.existsById(conference.getId())){
+            throw new RuntimeException("Conference doesn't exist");
+        }
+
+        this.repository.findById(conference.getId()).ifPresent(
+                e -> {
+                    e.setEndDate(conference.getEndDate());
+                    e.setStartDate(conference.getStartDate());
+                    e.setName(conference.getName());
+                }
+        );
+    }
 }
