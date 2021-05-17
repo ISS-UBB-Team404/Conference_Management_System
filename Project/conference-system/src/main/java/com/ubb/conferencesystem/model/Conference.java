@@ -31,8 +31,11 @@ public class Conference {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate endDate;
 
+//    @OneToMany
+//    private List<Section> sections = new ArrayList<>();
+
     @OneToMany
-    private List<Section> sections = new ArrayList<>();
+    private List<Paper> papers = new ArrayList<>();
 
     public Conference(String name, LocalDate startTime, LocalDate endTime) {
         this.name = name;
@@ -40,11 +43,12 @@ public class Conference {
         this.endDate = endTime;
     }
 
-    public Conference(String name, LocalDate startTime, LocalDate endTime, List<Section> sections) {
+    public Conference(String name, LocalDate startTime, LocalDate endTime, List<Paper> papers) {
         this.name = name;
         this.startDate = startTime;
         this.endDate = endTime;
-        this.sections = sections;
+        this.papers = papers;
     }
+
 }
 
