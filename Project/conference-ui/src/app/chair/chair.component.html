@@ -11,14 +11,14 @@
 <h2>Invite other Chairs or PC Members</h2>
 <form class="bottom-form" [formGroup]="inviteForm">
   <input type="text" formControlName="email" placeholder="Email">
-  <select name="types" formControlName="member">
+  <select name="types" formControlName="memberType">
     <option value="Chair">Chair</option>
     <option value="PC Member">PC Member</option>
   </select>
   <input type="submit" class="button-style" value="Invite" (click)="invite()">
 </form>
 
-
+<input type="submit" class="button-style" value="Add Paper">
 <!--<<<<<<< HEAD
 
 <table id="conferences">

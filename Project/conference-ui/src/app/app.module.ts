@@ -59,6 +59,10 @@ import { ConferenceUpdateComponent } from './chair/conference-update/conference-
         component: ChairComponent
       },
       {
+        path: 'chair/:id',
+        component: ChairComponent
+      },
+      {
         path: 'listener',
         component: ListenerComponent
       },
