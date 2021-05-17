@@ -13,9 +13,9 @@ public class PaperController {
     @Autowired
     private PaperService service;
 
-    @RequestMapping(path = "/submit-paper")
+    @RequestMapping(path = "/submit-paper/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public Paper submitPaper(@RequestBody Paper paper) throws Exception {
+    public Paper submitPaper(@PathVariable Long id , @RequestBody Paper paper) throws Exception {
         String title = paper.getTitle();
         Paper paperFetched = null;
         if (title != null && !title.equals("")) {
@@ -26,6 +26,8 @@ public class PaperController {
         }
         if(paper.getAccepted() == null)
             paper.setAccepted(false);
+        paper.setAuthorId(id);
+
         return service.savePaper(paper);
     }
 

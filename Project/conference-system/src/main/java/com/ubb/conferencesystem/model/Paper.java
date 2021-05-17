@@ -15,6 +15,7 @@ public class Paper {
     private String title;
     private String content;
     private Boolean accepted;
+    private Long authorId;
 
     public Paper(String title, String content, Boolean accepted) {
         this.title = title;

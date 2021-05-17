@@ -47,7 +47,7 @@ import { ConferenceUpdateComponent } from './chair/conference-update/conference-
         component: EnterComponent
       },
       {
-        path: 'submit',
+        path: 'submit/:id',
         component: PaperSubmitComponent
       },
       {

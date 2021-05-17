@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {PaperSubmitService} from '../paper-submit.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -12,15 +12,19 @@ import {Router} from '@angular/router';
 export class PaperSubmitComponent implements OnInit {
 
   submitForm: FormGroup;
+  public authorId: string;
 
   constructor(private paperSubmitService: PaperSubmitService,
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.authorId = this.route.snapshot.paramMap.get('id');
     this.submitForm = this.formBuilder.group({
       title: [''],
       content: [''],
+      authorId: this.authorId
     });
   }
 

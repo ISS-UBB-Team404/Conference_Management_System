@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  navigateByType(type: string): void {
+  navigateByType(type: string, id: number): void {
     switch (type) {
       case 'admin': {
         this.router.navigate(['/admin']);
         break;
       }
       case 'author': {
-        this.router.navigate(['/submit']);
+        this.router.navigate(['/submit', id]);
         break;
       }
       case 'chair': {
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         console.log('response received');
         console.log(data);
-        this.navigateByType(data.type);
+        this.navigateByType(data.type, data.id);
         // this.router.navigate(['/submit']);
         },
         error => {
