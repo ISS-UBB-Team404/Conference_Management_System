@@ -12,7 +12,8 @@ import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChairComponent } from './chair/chair.component';
 import { ListenerComponent } from './listener/listener.component';
-import { ConferenceUpdateComponent } from './chair/conference-update/conference-update.component';
+import { ConferenceUpdateComponent} from './chair/conference-update/conference-update.component';
+import { SectionNewComponent } from './chair/section-new/section-new.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConferenceUpdateComponent } from './chair/conference-update/conference-
     AdminComponent,
     ChairComponent,
     ListenerComponent,
-    ConferenceUpdateComponent
+    ConferenceUpdateComponent,
+    SectionNewComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,10 @@ import { ConferenceUpdateComponent } from './chair/conference-update/conference-
       {
         path: 'chair-update-conference',
         component: ConferenceUpdateComponent
+      },
+      {
+        path: 'chair/sections',
+        component: SectionNewComponent
       }
     ]),
     FormsModule,

@@ -40,6 +40,7 @@ export class ChairComponent implements OnInit {
     console.log(value);
     this.chairService.inviteChair(value)
       .subscribe(data => console.log(data));
+
   }
 
   // addPaper(): void {
