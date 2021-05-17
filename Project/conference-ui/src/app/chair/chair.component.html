@@ -1,6 +1,7 @@
 <h1>Chair Page</h1>
 
 <h2>Available Conferences:</h2>
+<<<<<<< HEAD
 
 <table id="conferences">
   <tr>
@@ -29,3 +30,11 @@
 <!--    {{conference.name}} -&#45;&#45; {{conference.startDate}} -&#45;&#45; {{conference.endDate}}-->
 <!--  </li>-->
 <!--</ol>-->
+=======
+<ol class="conferences">
+  <li *ngFor="let conference of conferences">
+    {{conference.name}} --- {{conference.startDate}} --- {{conference.endDate}}
+    <button class="updateButton" [class.update] = "true" (click)="updateConference(conference);$event.stopPropagation()" >Update</button>
+  </li>
+</ol>
+>>>>>>> origin/feature-papers-author-id

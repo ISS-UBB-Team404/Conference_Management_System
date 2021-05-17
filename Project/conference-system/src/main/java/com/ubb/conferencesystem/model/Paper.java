@@ -16,6 +16,10 @@ public class Paper {
     private String content;
     private Boolean accepted;
 
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Author author;
+
+
     public Paper(String title, String content, Boolean accepted) {
         this.title = title;
         this.content = content;

@@ -1,0 +1,7 @@
+<form class="updateConferenceForm" [formGroup]="updateConferenceForm" *ngIf="updateConferenceForm">
+  <input formControlName="name" type="text" id="name" class="fadeIn second"
+         name="name" placeholder="Name">
+  <input formControlName="startDate" type="date" id="startDate" class="fadeIn third" name="startDate" placeholder="Start">
+  <input formControlName="endDate" type="date" id="endDate" class="fadeIn third" name="endDate" placeholder="End">
+  <input type="submit" class="fadeIn fourth" value="Add" (click)="updateConference()">
+</form>

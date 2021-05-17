@@ -12,6 +12,7 @@ import { PaperSubmitComponent } from './paper-submit/paper-submit.component';
 import { AdminComponent } from './admin/admin.component';
 import { ChairComponent } from './chair/chair.component';
 import { ListenerComponent } from './listener/listener.component';
+import { ConferenceUpdateComponent } from './chair/conference-update/conference-update.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListenerComponent } from './listener/listener.component';
     PaperSubmitComponent,
     AdminComponent,
     ChairComponent,
-    ListenerComponent
+    ListenerComponent,
+    ConferenceUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { ListenerComponent } from './listener/listener.component';
         component: EnterComponent
       },
       {
-        path: 'submit',
+        path: 'submit/:id',
         component: PaperSubmitComponent
       },
       {
@@ -59,6 +61,10 @@ import { ListenerComponent } from './listener/listener.component';
       {
         path: 'listener',
         component: ListenerComponent
+      },
+      {
+        path: 'chair-update-conference',
+        component: ConferenceUpdateComponent
       }
     ]),
     FormsModule,
