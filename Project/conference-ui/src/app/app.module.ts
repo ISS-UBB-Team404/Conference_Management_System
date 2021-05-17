@@ -61,6 +61,10 @@ import { SectionNewComponent } from './chair/section-new/section-new.component';
         component: ChairComponent
       },
       {
+        path: 'chair/:id',
+        component: ChairComponent
+      },
+      {
         path: 'listener',
         component: ListenerComponent
       },

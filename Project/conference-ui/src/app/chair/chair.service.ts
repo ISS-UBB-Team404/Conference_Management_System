@@ -14,7 +14,7 @@ export class ChairService {
 
   public inviteChair(formValue: object): any {
     console.log(formValue);
-    // return this.http.post(this.chairUrl + '/invite', email);
+    return this.http.post(this.chairUrl + '/invite', formValue);
   }
 
   public createSection(section: Section): any{

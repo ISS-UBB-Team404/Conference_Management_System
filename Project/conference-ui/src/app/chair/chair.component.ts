@@ -23,7 +23,7 @@ export class ChairComponent implements OnInit {
   ngOnInit(): void {
     this.inviteForm = this.formBuilder.group({
       email: [''],
-      member: ['']
+      memberType: ['']
     });
     this.conferenceService.getAllConferences()
       .subscribe(conferences => this.conferences = conferences);
@@ -36,8 +36,14 @@ export class ChairComponent implements OnInit {
   }
 
   invite(): void {
-    // value =
-    // console.log(this.inviteForm.value);
-    // this.chairService.inviteChair()
+    const value = this.inviteForm.value;
+    console.log(value);
+    this.chairService.inviteChair(value)
+      .subscribe(data => console.log(data));
+
   }
+
+  // addPaper(): void {
+  //   this.router.navigate(['/submit', id]);
+  // }
 }

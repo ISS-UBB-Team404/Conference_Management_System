@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         break;
       }
       case 'chair': {
-        this.router.navigate(['/chair']);
+        this.router.navigate(['/chair', id]);
         break;
       }
       case 'listener': {

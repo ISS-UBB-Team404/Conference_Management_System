@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Paper} from './paper';
 
@@ -7,11 +7,18 @@ import {Paper} from './paper';
 })
 export class PaperSubmitService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  public submitPaper(paper: Paper): any {
+  public submitPaper(paper: Paper, conferenceId: number): any {
     alert('Paper submited!');
     console.log(paper);
-    return this.http.post(`http://localhost:8080/submit-paper/${paper.authorId}`, paper);
+
+    // TODO maybe make a dropdown, but functionality should be the same
+
+    return this.http.post(`http://localhost:8080/submit-paper/${paper.authorId}`, {
+      paper,
+      conferenceId
+    });
   }
 }

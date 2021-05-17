@@ -24,29 +24,32 @@ public class ChairService {
 
     public void addMember(Email email, String memberType) throws MailException {
         System.out.println(email);
+        System.out.println(memberType);
         String emailString = email.getEmail();
         String username = emailString.split("@")[0];
         String password = generatePassword();
 
-        User user = null;
         //Add member to database
         if(memberType.equals("Chair")) {
-            user = new Chair();
+            Chair user = new Chair();
             user.setUsername(username);
             user.setEmail(emailString);
             user.setPassword(password);
             user.setType("chair");
+            if(user != null)
+                userRepository.save(user);
+            System.out.println(user);
         }
-        else if(memberType.equals("PC member")) {
-            user = new PCMember();
+        else if(memberType.equals("PC Member")) {
+            PCMember user = new PCMember();
             user.setUsername(username);
             user.setEmail(emailString);
             user.setPassword(password);
             user.setType("pcmember");
+            if(user != null)
+                userRepository.save(user);
+            System.out.println(user);
         }
-
-        if(user != null)
-            userRepository.save(user);
 
         StringBuilder body = new StringBuilder();
         body.append("Welcome to the Conference Management System!\n")
