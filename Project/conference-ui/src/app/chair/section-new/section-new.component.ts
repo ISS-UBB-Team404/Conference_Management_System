@@ -34,7 +34,7 @@ export class SectionNewComponent implements OnInit {
 
     this.chairService.createSection(section)
       //.subscribe(_ => this.goBack());
-      .subscribe(alert('merge'));
+      .subscribe(alert('Section added'));
   }
 
 }

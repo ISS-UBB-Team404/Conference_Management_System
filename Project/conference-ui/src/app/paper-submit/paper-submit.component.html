@@ -13,6 +13,14 @@
     <div class="title">Paper Submitting</div>
   </div>
   <div class="row">
+
+    <div class="col-lg-2">
+      <select class="form-control" name="conference" id="conference" [(ngModel)]="selectedConference">
+        <option *ngFor="let conference of conferences" [ngValue]="conference">
+          {{conference.name}}
+        </option>
+      </select>
+    </div>
     <form [formGroup]="submitForm" role="form" id="submit-form" class="submit-form">
 
       <div class="row">
@@ -35,28 +43,18 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <select class="form-control" name="conference" id="conference" [(ngModel)]="selectedConference">
-            <option *ngFor="let conference of conferences" [ngValue]="conference">
-              {{conference.name}}
-            </option>
-          </select>
-        </div>
-        <div class="col-md-4"></div>
-
-
-      </div>
 
       <div class="wrapper">
-      <div class="row submitButton" >
-        <button (click)="onSubmit()" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        <div class="row submitButton" >
+          <button (click)="onSubmit()" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
       </div>
-      </div>
-
     </form>
   </div>
 </div>
 
-
+<!--<select name="conference" id="conference" [(ngModel)]="selectedConference">
+  <option *ngFor="let conference of conferences" [ngValue]="conference">
+    {{conference.name}}
+  </option>
+</select>-->
