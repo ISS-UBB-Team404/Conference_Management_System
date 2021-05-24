@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Paper} from '../../paper';
 import {FormBuilder, Validators} from '@angular/forms';
+import {Review} from './review';
+import {ReviewService} from './review.service';
 
 @Component({
   selector: 'app-review-paper',
@@ -17,9 +19,11 @@ export class ReviewPaperComponent implements OnInit {
     grade: ['', [Validators.required]],
     comments: ['']
   });
+  allReviews: Review[] = [];
 
   constructor(private route: ActivatedRoute,
-              public formBuilder: FormBuilder) {
+              public formBuilder: FormBuilder,
+              public reviewService: ReviewService) {
   }
 
   ngOnInit(): void {
@@ -31,9 +35,16 @@ export class ReviewPaperComponent implements OnInit {
     this.selectedReviewValue = value;
   }
 
-  onSubmit(): void{
-    console.log(
-      JSON.stringify(this.gradingForm.value)
+  onSubmit(): void {
+    this.reviewService.addReview(
+      new Review(
+        this.gradingForm.value[`grade`],
+        this.selectedPaper.title,
+        this.gradingForm.value[`comments`]
+      )
     );
+
+    this.allReviews = this.reviewService.getAllReviews();
+    console.log(this.allReviews);
   }
 }

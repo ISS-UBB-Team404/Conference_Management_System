@@ -14,4 +14,11 @@
   </label><br>
 
   <button type="submit" class="button bottom-form" style="margin-top: 5px; margin-left: 5px">Submit Review</button>
-</form>
+</form><hr>
+
+<ol class="papers">
+  <li *ngFor="let review of allReviews">
+    {{review.paperTitle}} | {{review.value}} | {{review.comment}}
+  </li>
+</ol>
+
