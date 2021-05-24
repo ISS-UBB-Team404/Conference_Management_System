@@ -1,5 +1,6 @@
 package com.ubb.conferencesystem.controller;
 
+import com.ubb.conferencesystem.model.Conference;
 import com.ubb.conferencesystem.model.Paper;
 import com.ubb.conferencesystem.service.AuthorService;
 import com.ubb.conferencesystem.service.ConferenceService;
@@ -23,6 +24,12 @@ public class PaperController {
 
     @Autowired
     private AuthorService authorService;
+
+    @RequestMapping(value = "/pcmember")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Paper> getAllPapers(){
+        return paperService.findAll();
+    }
 
     @RequestMapping(path = "/submit-paper/{id}")
     @CrossOrigin(origins = "http://localhost:4200")

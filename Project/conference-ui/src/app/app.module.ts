@@ -14,6 +14,8 @@ import { ChairComponent } from './chair/chair.component';
 import { ListenerComponent } from './listener/listener.component';
 import { ConferenceUpdateComponent} from './chair/conference-update/conference-update.component';
 import { SectionNewComponent } from './chair/section-new/section-new.component';
+import { PcmemberComponent } from './pcmember/pcmember.component';
+import { ReviewPaperComponent } from './pcmember/review-paper/review-paper.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SectionNewComponent } from './chair/section-new/section-new.component';
     ChairComponent,
     ListenerComponent,
     ConferenceUpdateComponent,
-    SectionNewComponent
+    SectionNewComponent,
+    PcmemberComponent,
+    ReviewPaperComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,14 @@ import { SectionNewComponent } from './chair/section-new/section-new.component';
       {
         path: 'listener',
         component: ListenerComponent
+      },
+      {
+        path: 'pcmember',
+        component: PcmemberComponent
+      },
+      {
+        path: 'review',
+        component: ReviewPaperComponent
       },
       {
         path: 'chair-update-conference',

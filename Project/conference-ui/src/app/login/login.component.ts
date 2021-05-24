@@ -43,6 +43,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/listener']);
         break;
       }
+      case 'pcmember': {
+        this.router.navigate(['/pcmember']);
+        break;
+      }
       default: {
         this.router.navigate(['']);
         break;

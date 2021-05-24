@@ -52,5 +52,10 @@ export class PaperSubmitComponent implements OnInit {
           console.log('response received');
         },
         error => console.log('exception'));
+
+    this.router.navigate(['/submit/' + this.authorId])
+      .then(
+        () => window.location.reload()
+      );
   }
 }
