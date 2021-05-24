@@ -1,1 +1,17 @@
-<p>review-paper works!</p>
+<h2>Paper: {{selectedPaper.title}}</h2>
+
+<div>Contents: {{selectedPaper.content}}</div><hr>
+
+<form [formGroup]="gradingForm" (ngSubmit)="onSubmit()">
+  <select formControlName="grade" style="margin-top: 5px; margin-left: 5px">
+<!--    <option disabled selected value="" > choose a grade </option>-->
+    <option *ngFor="let possibleReviewValue of possibleReviewValues" [ngValue]="possibleReviewValue"> {{possibleReviewValue}} </option>
+  </select><br>
+
+  <label>
+    <input type="text" formControlName="comments" placeholder="Additional Comments" style="
+    height: 200px; width: 80%; margin-left: 5px; margin-top: 5px">
+  </label><br>
+
+  <button type="submit" class="button bottom-form" style="margin-top: 5px; margin-left: 5px">Submit Review</button>
+</form>

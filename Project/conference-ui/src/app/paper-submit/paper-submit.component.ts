@@ -36,7 +36,6 @@ export class PaperSubmitComponent implements OnInit {
 
     this.conferenceService.getAllConferences()
       .subscribe(data => this.conferences = data);
-    console.log(this.conferences);
   }
 
   onSubmit(): void {
@@ -53,9 +52,9 @@ export class PaperSubmitComponent implements OnInit {
         },
         error => console.log('exception'));
 
-    this.router.navigate(['/submit/' + this.authorId])
-      .then(
+    this.router.navigate(['/submit/' + this.authorId]);
+      /*.then(
         () => window.location.reload()
-      );
+      );*/
   }
 }

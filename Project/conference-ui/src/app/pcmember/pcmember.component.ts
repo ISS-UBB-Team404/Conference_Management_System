@@ -14,7 +14,7 @@ export class PcmemberComponent implements OnInit {
   papersAssignedForReviewing: Paper[];
 
   constructor(public paperService: PaperService,
-              private router : Router) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -32,6 +32,9 @@ export class PcmemberComponent implements OnInit {
   }
 
   reviewPaper(paper: Paper): void {
+    console.log(paper);
+    const route = this.router.config.find(r => r.path === 'review');
+    route.data = {paper};
     this.router.navigate(['/review']);
   }
 }
